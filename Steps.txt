@@ -1,0 +1,9 @@
+Initial Database Setup with Seeding
+
+1. Created Thread and Reply models with Controller and Migrations.
+2. Created Factories for Thread and Reply.
+3. Run php artisan tinker
+ - $threads = factory('App\Models\Thread',5)->create();
+ - $threads->each(function($thread){factory('App\Models\Reply',2)->create(['thread_id' => $thread->id]); });
+
+Make 5 Threads and for each Thread 2 Replies

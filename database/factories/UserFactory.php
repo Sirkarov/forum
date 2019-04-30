@@ -49,7 +49,7 @@ $factory->define(Reply::class, function (Faker $faker) {
 
 
         'user_id' => function(){
-            return factory('App\Models\Reply')->create()->id;
+            return factory('App\User')->create()->id;
         },
 
         'body'  =>$faker->paragraph
