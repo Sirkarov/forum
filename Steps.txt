@@ -1,4 +1,4 @@
-Initial Database Setup with Seeding
+01. Initial Database Setup with Seeding
 
 1. Created Thread and Reply models with Controller and Migrations.
 2. Created Factories for Thread and Reply.
@@ -6,4 +6,29 @@ Initial Database Setup with Seeding
  - $threads = factory('App\Models\Thread',5)->create();
  - $threads->each(function($thread){factory('App\Models\Reply',2)->create(['thread_id' => $thread->id]); });
 
-Make 5 Threads and for each Thread 2 Replies
+With above commands are created 5 Threads and for these 5 Threads 2 Replies for each
+
+02. Test-Driving Threads
+
+1. Display All Threads into threads.index view
+2. Rename ExampleTest into ThreadsTest in tests/Feature/
+3. Make a test function with name a_user_can_browse_threads
+4. Prepare the test environment and modify the phpunit.xml adding these two lines of code:
+
+  <server name="DB_CONNECTION" value="sqlite"/>
+  <server name="DB_DATABASE" value=":memory:"/>
+
+  For testing purposes we are using sqlite and for sqlite memory we are adding :memory: into DB_DABASE field
+
+For running test use the command:
+
+./vendor/bin/phpunit because running phpunit will not run the test because is defined like global variable.
+
+If there are warning with message that there are not tests, above the test funciton add this line of code:
+
+/** @test */  
+
+Adding that @test tells phpunit to treat the function as a test, regardless of the name.
+
+
+Make test to view all threads,single thread
